@@ -34,7 +34,7 @@ async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
         await update.message.reply_text("Произошла ошибка. Попробуй снова!")
 
-app = ApplicationBuilder().token("8084625980:AAGnwpYUaYamO10_8vjB0zm9Mt3wie2FEQk").build()
+app = ApplicationBuilder().token("").build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
