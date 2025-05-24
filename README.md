@@ -1,6 +1,3 @@
-
-----------En----------
-
 # Telegram Black & White Photo Bot
 
 A simple Telegram bot that applies a black-and-white filter to photos sent by users. Built with Python 3.12 using the python-telegram-bot and Pillow libraries.
@@ -23,7 +20,7 @@ A simple Telegram bot that applies a black-and-white filter to photos sent by us
 git clone <repository-url>
 cd <repository-folder>
 
-----------Ru----------
+
 
 # Telegram-бот для черно-белых фотографий
 
