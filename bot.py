@@ -3,6 +3,8 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, fil
 from PIL import Image
 import io
 
+TOKEN = "here is a bot token from the @BotFather in telegram"
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Привет! Отправь мне фото, и я сделаю его черно-белым.")
 
@@ -33,9 +35,14 @@ async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f"Update {update} caused error {context.error}")
     if update.message:
         await update.message.reply_text("Произошла ошибка. Попробуй снова!")
+def main()
+    app = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
+    app.add_error_handler(error)
 
-app = ApplicationBuilder().token("here is a bot token from the @BotFather in telegram").build()
-app.add_handler(CommandHandler("start", start))
-app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
-app.add_error_handler(error)
+    app.run_poling()
+
+if __name__ == '__main__':
+    main()
